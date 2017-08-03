@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="UI.Menu_Switch.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Menu_Switch"
+             mc:Ignorable="d" 
+              d:DesignHeight="400" d:DesignWidth="500" Background="White">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="DarkBlue"/>
+        <Label x:Name="WelcomeLabel" Content="Restaurant Manager" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="45" FontStyle ="Italic" Foreground="White"/>
+        <Label x:Name="FirstLabel" Content="To perfom action on order please click below" Grid.Row="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button x:Name="OrderButton" Content="ORDER" Margin="20" Grid.Row="2" FontSize="26" Click="OrderButton_Click" BorderBrush="Black"/>
+        <Label x:Name="SecondLabel" Content="Perfom action on general managment please click below" FontSize="19" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button x:Name="ManagmentLabel" Content="INTERNAL MANAGMENT" FontSize="26" Grid.Row="4" Margin="20" BorderBrush="Black" Click="ManagmentLabel_Click"/>
+        <Grid Grid.Row="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Label x:Name="SimonLabel" Content="Simon Moyal 1177707" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="12"/>
+        <Label x:Name="DavidLabel" Content="David Katz 065970394" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="12"/>
+    </Grid>
+</UserControl>
+

@@ -1,0 +1,133 @@
+﻿<UserControl xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Menu_Switch"
+             xmlns:BE="clr-namespace:BE;assembly=BE" x:Class="UI.Menu_Switch.ClientWindow"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="600" Background="CadetBlue">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="SectionLabel" Content="ADD CLIENT SECTION" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="30" FontStyle="Italic"/>
+        <Label x:Name="informationlabel" Content="Please enter the following fields" Grid.Row="1" VerticalContentAlignment="Center" HorizontalAlignment="Center" FontSize="26"/>
+
+        <Grid x:Name="grid1" Margin="10" Grid.Row="2" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Client Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15"/>
+            <TextBox x:Name="clientNameTextBox" Grid.Column="1" Margin="8" Grid.Row="2" Text="{Binding ClientName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="clientNameTextBox_TextChanged"/>
+        </Grid>
+        <Grid x:Name="grid2" Margin="10" Grid.Row="3" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="age:" Grid.Column="0"  Margin="3" Grid.Row="0" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16"/>
+            <TextBox x:Name="ageTextBox" Grid.Column="1" Margin="8" Grid.Row="3" Text="{Binding age, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="ageTextBox_TextChanged">
+            </TextBox>
+        </Grid>
+        <Grid x:Name="grid3" Margin="10" Grid.Row="4" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Address:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="16"/>
+            <TextBox x:Name="addressTextBox" Grid.Column="1" Margin="8" Grid.Row="4" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid4" Margin="10" Grid.Row="5" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Address For Delivery:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="14"/>
+            <TextBox x:Name="addressForDeliveryTextBox" Grid.Column="1" Margin="8" Grid.Row="5" Text="{Binding AddressForDelivery, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="grid5" Margin="10" Grid.Row="6" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Number Telephone:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15"/>
+            <TextBox x:Name="numberTelephoneTextBox" Grid.Column="1" Margin="8" Grid.Row="6" Text="{Binding NumberTelephone, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="numberTelephoneTextBox_TextChanged"/>
+        </Grid>
+
+        <Grid Grid.Row="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="BackButton" Content="Back" Grid.Column="0" Grid.Row="8" BorderBrush="Black" Margin="15,15,135,15" Click="BackButton_Click"/>
+            <Button x:Name="NextButton" Content="Next" Grid.Column="1" Grid.Row="8" BorderBrush="Black" Margin="135,15,15,15" Click="NextButton_Click">
+                <Button.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName = clientNameTextBox, Path=Text}" Value="">
+                                <Setter Property="Button.IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName = ageTextBox, Path=Text}" Value="0">
+                                <Setter Property="Button.IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName = addressTextBox, Path=Text}" Value="">
+                                <Setter Property="Button.IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName =addressForDeliveryTextBox, Path=Text}" Value="">
+                                <Setter Property="Button.IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName =numberTelephoneTextBox, Path=Text}" Value="0">
+                                <Setter Property="Button.IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName =clientIDTextBox, Path=Text}" Value="0">
+                                <Setter Property="Button.IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=creditCardNumberTextBox, Path=Text}" Value="0">
+                                <Setter Property="Button.IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ElementName=creditCardNumberTextBox, Path=Text}" Value="">
+                                <Setter Property="Button.IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+        <Grid x:Name="grid6" Margin="10" Grid.Row="7" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Credit Card Number (8 digits):" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="7" VerticalAlignment="Center" FontSize="16"/>
+            <TextBox x:Name="creditCardNumberTextBox" Grid.Column="1" MaxLength="8" Margin="8" Grid.Row="7" Text="{Binding CreditCardNumber, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="creditCardNumberTextBox_TextChanged">
+            </TextBox>
+        </Grid>
+    </Grid>
+</UserControl>

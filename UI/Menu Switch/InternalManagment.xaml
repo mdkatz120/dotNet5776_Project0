@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="UI.Menu_Switch.InternalManagment"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI.Menu_Switch"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="600" Background="Gray">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label x:Name="Title" Content="INTERNAL MANAGMENT SECTION" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24" FontStyle="Italic"/>
+        <Label x:Name="Information" Content="Please choose a section" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="24"/>
+        <Button x:Name="DishButton" Content="DISH SECTION" Grid.Row="2" Margin="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" BorderBrush="AliceBlue" Click="DishButton_Click"/>
+        <Button x:Name="BranchButton" Content="BRANCH SECTION" Grid.Row="3" Margin="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" BorderBrush="AliceBlue" Click="BranchButton_Click"/>
+        <Button x:Name="GainsButton" Content="FINANCIAl SECTION" Grid.Row="4" Margin="14" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" BorderBrush="AliceBlue" Click="GainsButton_Click"/>
+        <Button x:Name="BackButton" Content="back" Grid.Row="5" Margin="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15" BorderBrush="AliceBlue" Click="BackButton_Click"/>
+    </Grid>
+</UserControl>

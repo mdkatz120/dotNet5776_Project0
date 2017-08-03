@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="UI.Menu_Switch.AddDish"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="600" Background="SeaGreen">
+    <UserControl.Resources>
+        <local:ImageConverter x:Key="ImageConverter"/>
+        <BitmapImage x:Key="defaultimage" UriSource="C:\Users\Simon\Documents\Visual Studio 2015\Projects\dotNet5776_Project01_7707_0394\UI\Images\default2.jpg"/>
+    </UserControl.Resources>
+    <Grid  x:Name="DishGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="Info" Content="ADD A DISH SECTION" Grid.Row="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="20" FontStyle="Italic"/>
+            <Label x:Name="Info2" Content="Please enter the following field" Grid.Row="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="15"/>
+
+            <Grid x:Name="grid1" Margin="10" Grid.Row="2" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="15"/>
+                <TextBox x:Name="nameTextBox" Grid.Column="1" Margin="8" Grid.Row="2" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            </Grid>
+            <Grid x:Name="grid2" Margin="10" Grid.Row="3" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Preparation Time:" Grid.Column="0"  Margin="3" Grid.Row="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="15"/>
+                <TextBox x:Name="preparationTimeTextBox" Grid.Column="1" Grid.Row="3" Margin="10" Text="{Binding PreparationTime, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="preparationTimeTextBox_TextChanged"/>
+            </Grid>
+            <Grid x:Name="grid3" Margin="10" Grid.Row="4" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Price Of Dish:" Grid.Column="0"  Margin="3" Grid.Row="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="15"/>
+                <TextBox x:Name="priceOfDishTextBox" Grid.Column="1" Margin="10" Grid.Row="4" Text="{Binding PriceOfDish, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" TextChanged="priceOfDishTextBox_TextChanged"/>
+            </Grid>
+            <Grid x:Name="grid4" Margin="10" Grid.Row="5" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Quantity:" Grid.Column="0" Margin="3" Grid.Row="5" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="15"/>
+                <TextBox x:Name="quantityTextBox" Grid.Column="1" Margin="10" Grid.Row="5" Text="{Binding Quantity, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" TextChanged="quantityTextBox_TextChanged"/>
+            </Grid>
+            <Grid x:Name="grid5" Margin="10" Grid.Row="6" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Request:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" HorizontalContentAlignment="Left" FontSize="15" />
+                <ComboBox x:Name="requestComboBox" Grid.Column="1" SelectedItem="{Binding Request}" Margin="10" Grid.Row="6"/>
+            </Grid>
+            <Grid x:Name="grid6" Margin="10" Grid.Row="7" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Size Of Dish:" Grid.Column="0" Margin="3" Grid.Row="7" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" FontSize="15"/>
+                <ComboBox x:Name="sizeOfDishComboBox" Grid.Column="1" SelectedItem="{Binding SizeOfDish}" Margin="10" Grid.Row="7"/>
+            </Grid>
+            <Grid Grid.Row="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Back" Content="Back" Grid.Column="0" Margin="15" Click="Back_Click"/>
+                <Button x:Name="AddButton" Content="Add" Grid.Column="1" Margin="15" Click="Add_Click">
+                    <Button.Style>
+                        <Style>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=nameTextBox, Path=Text}" Value="">
+                                    <Setter Property="Button.IsEnabled" Value="False"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName = preparationTimeTextBox, Path=Text}" Value="0">
+                                    <Setter Property="Button.IsEnabled" Value="False"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName = priceOfDishTextBox, Path=Text}" Value="0">
+                                    <Setter Property="Button.IsEnabled" Value="False"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName =quantityTextBox, Path=Text}" Value="0">
+                                    <Setter Property="Button.IsEnabled" Value="False"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName =requestComboBox, Path=SelectedValue}" Value="null">
+                                    <Setter Property="Button.IsEnabled" Value="False"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ElementName =sizeOfDishComboBox, Path=SelectedValue}" Value="null">
+                                    <Setter Property="Button.IsEnabled" Value="False"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid x:Name="grid7" Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Image x:Name="Image" Grid.Column="1" Margin="15" Grid.Row="0" Source="{Binding Image, Mode=TwoWay,TargetNullValue={StaticResource defaultimage} , Converter={StaticResource ImageConverter}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Button x:Name="Change" Grid.Column="1" Grid.Row="1" Margin="60" Content="load image" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Click="Change_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
